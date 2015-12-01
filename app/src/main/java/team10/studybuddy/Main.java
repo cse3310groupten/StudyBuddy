@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class Main extends AppCompatActivity {
+public class Main extends AppCompatActivity implements View.OnClickListener{
 
     Button btn_login;
     Button btn_sign_up;
@@ -21,6 +21,11 @@ public class Main extends AppCompatActivity {
         /*Create buttons*/
         btn_login = (Button) findViewById(R.id.id_btn_login);
         btn_sign_up = (Button) findViewById(R.id.id_btn_sign_up);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 
     @Override

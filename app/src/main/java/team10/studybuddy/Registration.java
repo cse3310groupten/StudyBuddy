@@ -9,25 +9,39 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class Registration extends AppCompatActivity {
+public class Registration extends AppCompatActivity implements View.OnClickListener{
 
-    Button btn_submit;
+    Button bRegister;
 
-    EditText id;
-    EditText pw;
-    EditText re_pw;
+    EditText etName;
+    EditText etUsername;
+    EditText etPassword;
+    EditText etRePassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        btn_submit= (Button) findViewById(R.id.id_btn_reg_submit);
+        bRegister= (Button) findViewById(R.id.bRegister);
 
-        id = (EditText) findViewById(R.id.id_reg_id_input);
-        pw = (EditText) findViewById(R.id.id_reg_pw_input);
-        re_pw = (EditText) findViewById(R.id.id_reg_repw_input);
+        etName = (EditText) findViewById(R.id.etName);
+        etUsername = (EditText) findViewById(R.id.etUsername);
+        etPassword = (EditText) findViewById(R.id.etPassword);
+        etRePassword = (EditText) findViewById(R.id.etRePassword);
 
+        bRegister.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.bRegister:
+                startActivity(new Intent(this, Login.class));
+
+                break;
+        }
     }
 
     @Override

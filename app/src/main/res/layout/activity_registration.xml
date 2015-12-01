@@ -3,46 +3,76 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="team10.studybuddy.Registration">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context="team10.studybuddy.Login">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/linearLayout"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout2">
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Name"
+            android:layout_height="wrap_content"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/id_reg_id_input"
-            android:hint="@string/prompt_id" />
+            android:id="@+id/etName"
+            android:hint="Enter your name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Username"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etUsername"
+            android:hint="Your username is your UTA Email" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Choose a Password"
+            android:layout_height="wrap_content"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/id_reg_pw_input"
+            android:id="@+id/etPassword"
             android:hint="@string/prompt_password" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Reenter your Password"
+            android:layout_height="wrap_content"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/id_reg_repw_input"
-            android:hint="@string/prompt_re_password" />
+            android:id="@+id/etRePassword"
+            android:hint="@string/prompt_password" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/str_btn_submit"
-            android:id="@+id/id_btn_reg_submit"
-            android:onClick="inputVerification"/>
+            android:text="Register"
+            android:id="@+id/bRegister"
+            android:onClick="userVerification"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="79dp" />
+
 
     </LinearLayout>
 
