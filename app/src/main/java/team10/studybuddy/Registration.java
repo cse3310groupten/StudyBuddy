@@ -38,8 +38,11 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.bRegister:
+                String name = etName.getText().toString();
+                String username = etUsername.getText().toString();
+                String password = etPassword.getText().toString();
+                User user = new User(name, username, password);
                 startActivity(new Intent(this, Login.class));
-
                 break;
         }
     }
