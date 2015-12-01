@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+
 public class Registration extends AppCompatActivity implements View.OnClickListener{
 
     Button bRegister;
@@ -16,7 +19,6 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
     EditText etName;
     EditText etUsername;
     EditText etPassword;
-    EditText etRePassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,8 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
         etName = (EditText) findViewById(R.id.etName);
         etUsername = (EditText) findViewById(R.id.etUsername);
         etPassword = (EditText) findViewById(R.id.etPassword);
-        etRePassword = (EditText) findViewById(R.id.etRePassword);
+
+
 
         bRegister.setOnClickListener(this);
 
@@ -41,6 +44,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                 String name = etName.getText().toString();
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
+
                 User user = new User(name, username, password);
                 startActivity(new Intent(this, Login.class));
                 break;

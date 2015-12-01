@@ -21,12 +21,9 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Parse.enableLocalDatastore(this);
+
         Parse.initialize(this, "eiVK4YPZpFbKBxwKD3PlUpSdDflusDQEZhhlPaWd", "hRw4QGOAYJKnWGS0BJuhRH6xUtRVpLrvGHz393PL");
-
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
-
 
         /*Create buttons*/
         btn_login = (Button) findViewById(R.id.id_btn_login);
@@ -34,6 +31,13 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
 
         btn_login.setOnClickListener(this);
         btn_sign_up.setOnClickListener(this);
+
+        ParseObject testUser = new ParseObject("User");
+        testUser.put("name", "Brian Wong");
+        testUser.put("username", "brianwongisthebest");
+        testUser.put("password", "password");
+        testUser.saveInBackground();
+
     }
 
     @Override

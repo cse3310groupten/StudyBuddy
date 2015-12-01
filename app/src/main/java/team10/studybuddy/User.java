@@ -1,11 +1,18 @@
 package team10.studybuddy;
 
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.parse.Parse;
+import com.parse.ParseObject;
+
 /**
  * Created by Brian on 12/1/2015.
  */
-public class User {
+public class User{
 
     String name, username, password;
+
 
     public User(String name,String username,String password){
         this.name = name;
@@ -18,6 +25,6 @@ public class User {
         this.username = username;
         this.password = password;
         this.name = "";
-    }
 
+    }
 }

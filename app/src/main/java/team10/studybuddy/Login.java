@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.parse.Parse;
+
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
     Button bLogin;
@@ -28,6 +30,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         etUsername = (EditText) findViewById(R.id.etUsername);
         etPassword = (EditText) findViewById(R.id.etPassword);
         tvRegisterLink = (TextView) findViewById(R.id.tvRegisterLink);
+
+        //Parse.initialize(this, "eiVK4YPZpFbKBxwKD3PlUpSdDflusDQEZhhlPaWd", "hRw4QGOAYJKnWGS0BJuhRH6xUtRVpLrvGHz393PL");
 
 
         bLogin.setOnClickListener(this);
