@@ -57,6 +57,14 @@
             android:id="@+id/id_btn_menu_application"
             android:onClick="openApplication"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log out"
+            android:id="@+id/id_btn_logout"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"/>
+
     </LinearLayout>
 
 </RelativeLayout>

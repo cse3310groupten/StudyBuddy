@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class MainMenu extends AppCompatActivity {
+public class MainMenu extends AppCompatActivity implements View.OnClickListener{
 
     Button btn_profile;
     Button btn_course;
@@ -17,9 +17,10 @@ public class MainMenu extends AppCompatActivity {
     Button btn_notification;
     Button btn_setting;
     Button btn_application;
+    Button btn_logout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
@@ -30,6 +31,18 @@ public class MainMenu extends AppCompatActivity {
         btn_notification = (Button) findViewById(R.id.id_btn_menu_notification);
         btn_setting =(Button) findViewById(R.id.id_btn_menu_setting);
         btn_application =(Button) findViewById(R.id.id_btn_menu_application);
+        btn_logout = (Button) findViewById(R.id.id_btn_logout);
+
+        btn_logout.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.id_btn_logout:
+
+                break;
+        }
     }
 
     @Override
@@ -88,6 +101,7 @@ public class MainMenu extends AppCompatActivity {
         Intent intent = new Intent(this, Application.class);
         startActivity(intent);
     }
+
 
 
 }

@@ -21,11 +21,22 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         /*Create buttons*/
         btn_login = (Button) findViewById(R.id.id_btn_login);
         btn_sign_up = (Button) findViewById(R.id.id_btn_sign_up);
+
+        btn_login.setOnClickListener(this);
+        btn_sign_up.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.id_btn_login:
+                startActivity(new Intent(this,Login.class));
+                break;
 
+            case R.id.id_btn_sign_up:
+                startActivity(new Intent(this,Registration.class));
+                break;
+        }
     }
 
     @Override
@@ -49,7 +60,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
 
         return super.onOptionsItemSelected(item);
     }
-
+/*
     public void openLoginPage(View view)    {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
@@ -59,5 +70,5 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         Intent intent = new Intent(this, Registration.class);
         startActivity(intent);
     }
-
+*/
 }
