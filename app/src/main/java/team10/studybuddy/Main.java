@@ -10,6 +10,10 @@ import android.widget.Button;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
+
+import java.text.ParseException;
 
 public class Main extends AppCompatActivity implements View.OnClickListener{
 
@@ -32,11 +36,25 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         btn_login.setOnClickListener(this);
         btn_sign_up.setOnClickListener(this);
 
-        ParseObject testUser = new ParseObject("User");
-        testUser.put("name", "Brian Wong");
-        testUser.put("username", "brianwongisthebest");
-        testUser.put("password", "password");
-        testUser.saveInBackground();
+        ParseUser user = new ParseUser();
+        user.setUsername("my name");
+        user.setPassword("my pass");
+        user.setEmail("email@example.com");
+
+// other fields can be set just like with ParseObject
+        user.put("phone", "650-555-0000");
+
+        user.signUpInBackground(new SignUpCallback() {
+            @Override
+            public void done(com.parse.ParseException e) {
+                if (e == null) {
+                    // Hooray! Let them use the app now.
+                } else {
+                    // Sign up didn't succeed. Look at the ParseException
+                    // to figure out what went wrong
+                }
+            }
+        });
 
     }
 
@@ -45,6 +63,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         switch(v.getId()){
             case R.id.id_btn_login:
                 startActivity(new Intent(this,Login.class));
+                //hello
                 break;
 
             case R.id.id_btn_sign_up:
