@@ -32,11 +32,6 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         btn_login.setOnClickListener(this);
         btn_sign_up.setOnClickListener(this);
 
-        ParseObject testUser = new ParseObject("User");
-        testUser.put("name", "Brian Wong");
-        testUser.put("username", "brianwongisthebest");
-        testUser.put("password", "password");
-        testUser.saveInBackground();
 
     }
 

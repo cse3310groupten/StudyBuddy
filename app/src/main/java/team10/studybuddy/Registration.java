@@ -8,9 +8,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.Parse;
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.List;
 
 public class Registration extends AppCompatActivity implements View.OnClickListener{
 
@@ -31,8 +37,6 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
         etUsername = (EditText) findViewById(R.id.etUsername);
         etPassword = (EditText) findViewById(R.id.etPassword);
 
-
-
         bRegister.setOnClickListener(this);
 
     }
@@ -45,7 +49,46 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
 
-                User user = new User(name, username, password);
+                //User user = new User(name, username, password);
+
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("User");
+                query.whereEqualTo("Username", "user1.uta.edu");
+
+                query.findInBackground(new FindCallback<ParseObject>() {
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        if (e == null) {
+                            // The query was successful to find existing username
+                            showMessage();
+
+                        } else {
+                            // create new account holder
+                            ParseObject testUser = new ParseObject("User");
+
+                            testUser.put("first_name", "Brian");
+                            testUser.put("last_name", "Wong");
+                            testUser.put("password", "0000");
+                            testUser.put("username","user1@uta.edu");
+                            testUser.put("major","CE");
+                            testUser.put("no_of_ratings",0);
+                            testUser.put("rate",0);
+                            //privacy settings are initially updated as default(return true)
+                            testUser.put("show_firstname",true);
+                            testUser.put("show_lastname",true);
+                            testUser.put("show_email",true);
+                            testUser.put("show_gender",true);
+                            testUser.put("show_major",true);
+                            testUser.saveInBackground();
+
+
+
+                        }
+                    }
+                });
+
+
+
+                // Create user using ParseObject
+
                 startActivity(new Intent(this, Login.class));
                 break;
         }
@@ -78,9 +121,15 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
         openMenu(view);
     }
 
-    public void openMenu(View view)    {
+    public void openMenu(View view) {
 
         Intent intent = new Intent(this,MainMenu.class);
         startActivity(intent);
+    }
+
+    public void showMessage(){
+
+        Toast.makeText(getApplicationContext(), "Existing username.", Toast.LENGTH_SHORT).show();
+
     }
 }
